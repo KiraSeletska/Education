@@ -1,0 +1,11 @@
+.Day{
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
