@@ -43,7 +43,6 @@ export const counterReducer = (state = initialCounterState, action) => {
   }
 };
 
-
 const shangeCompleted = (idEl, arr) => {
     const changeTodo = arr.find((el) => el.id === idEl);
     changeTodo && (changeTodo.completed = !changeTodo.completed);
