@@ -13,7 +13,6 @@ export const TodoList = () => {
 
   const [todoText, setTodoText] = useState('')
   const [handle, setHandle] = useState(false)
-console.log(todos)
 
 const dispatch = useDispatch()
 
@@ -21,8 +20,6 @@ const dispatch = useDispatch()
 
   const handleToggleTodo = (id) => {
     dispatch(toggleTodo(id))
-    console.log(id)
-    console.log(todos)
     setHandle(!handle)
   }
 
@@ -46,7 +43,7 @@ const dispatch = useDispatch()
             {todo.text}
             <input
               type="checkbox"
-              //checked={todo.completed}
+              checked={todo.completed}
               onChange={() => handleToggleTodo(todo.id)}
             />
             <button onClick={() => {dispatch(removeTodo(todo.id))}} className="remove-button">

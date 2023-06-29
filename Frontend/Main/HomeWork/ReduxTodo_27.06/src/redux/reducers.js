@@ -73,7 +73,7 @@ export const todoReducer = (state = initialTodoState, action) => {
               todo.completed = !todo.completed
               return todo
             }
-            return  todo
+            return todo
           })}
   
         case "REMOVETODO":
