@@ -20,7 +20,7 @@ const dispatch = useDispatch()
 
   const handleToggleTodo = (id) => {
     dispatch(toggleTodo(id))
-    setHandle(!handle)
+   // setHandle(!handle)
   }
 
  // const handleRemoveTodo = (id) => {}
@@ -44,7 +44,7 @@ const dispatch = useDispatch()
             <input
               type="checkbox"
               checked={todo.completed}
-              onChange={() => handleToggleTodo(todo.id)}
+              onChange={() => dispatch(toggleTodo(todo.id))}
             />
             <button onClick={() => {dispatch(removeTodo(todo.id))}} className="remove-button">
               Remove
