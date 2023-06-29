@@ -1,21 +1,15 @@
-import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTodo, toggleTodo, removeTodo } from '../redux/actionCreators'
+import { useState } from 'react'
+import { addTodo, toggleTodo, deletTodo } from '../redux/todoSlice'
 import './todoList.css'
+
 export const TodoList = () => {
-  /*
-  const [todos, setTodos] = useState([
-    { text: 'sdfsd', id: 1 },
-    { text: 'sdfsd', id: 3 },
-  ])*/
 
   const todos = useSelector((store)=>store.todos.todos)
 
   const [todoText, setTodoText] = useState('')
 
 const dispatch = useDispatch()
-
-  ///const sendTodosText = (e) => {}
 
   const handleAddTodo = () => {
     dispatch(addTodo(todoText))
@@ -28,7 +22,7 @@ const dispatch = useDispatch()
   }
 
  const handleRemoveTodo = (id) => {
-  dispatch(removeTodo(id))
+  dispatch(deletTodo(id))
  }
 
   return (

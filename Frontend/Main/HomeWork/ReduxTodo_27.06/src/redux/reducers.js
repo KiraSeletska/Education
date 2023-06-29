@@ -43,42 +43,31 @@ export const counterReducer = (state = initialCounterState, action) => {
   }
 };
 
-const shangeCompleted = (idEl, arr) => {
-    const changeTodo = arr.find((el) => el.id === idEl);
-    changeTodo && (changeTodo.completed = !changeTodo.completed);
-    return arr
-}
-
-const deletTodo = (idEl, arr) => {
-    const newArr = arr.filter((el) => el.id !== idEl);
- return newArr
-  };
 
 export const todoReducer = (state = initialTodoState, action) => {
     switch (action.type) {
         case "ADDTODO":
-          return {
+         // console.log(state, action, action.payload)//показывает изминения состояния case
+          const newTodo = {
+            id: getRandomID(),
+            text: action.payload,
+            completed: false
+          }
+        console.log(newTodo)  
+        return {
             ...state,
-            todos: state.todos.concat([{
-        id: getRandomID(),
-        text: action.payload,
-        completed: false
-            }]),
+            todos: [...state.todos, newTodo]
           };
     
         case "TOGGLETODO":
-          return {...state,
-            todos: state.todos.map(todo => {
-            if (todo.id === action.idEl) {
-              todo.completed = !todo.completed
-              return todo
-            }
-            return todo
-          })}
-  
+      //  console.log(action) 
+        return {...state,
+            todos: state.todos.map(todo => 
+            todo.id === action.idEl ? {...todo, completed: !todo.completed} : todo)}
+            // совпадает id?   если да =>       поменять состояние   если нет=> оставляем, как есть
         case "REMOVETODO":
           return {...state, 
-            todos: [...state.todos.filter(el => el.id !== action.idEl)]}
+            todos: state.todos.filter(el => el.id !== action.idEl)}
     
         default:
           return state;
