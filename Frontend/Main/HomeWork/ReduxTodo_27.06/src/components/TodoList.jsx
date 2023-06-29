@@ -12,16 +12,12 @@ export const TodoList = () => {
   const todos = useSelector((store)=>store.todos.todos)
 
   const [todoText, setTodoText] = useState('')
-  const [handle, setHandle] = useState(false)
 
 const dispatch = useDispatch()
 
   ///const sendTodosText = (e) => {}
 
-  const handleToggleTodo = (id) => {
-    dispatch(toggleTodo(id))
-   // setHandle(!handle)
-  }
+  //const handleToggleTodo = () => {}
 
  // const handleRemoveTodo = (id) => {}
 
