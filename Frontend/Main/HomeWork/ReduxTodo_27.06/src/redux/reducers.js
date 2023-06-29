@@ -48,6 +48,7 @@ const shangeCompleted = (idEl, arr) => {
     changeTodo && (changeTodo.completed = !changeTodo.completed);
     return arr
 }
+
 const deletTodo = (idEl, arr) => {
     const newArr = arr.filter((el) => el.id !== idEl);
  return newArr
@@ -66,15 +67,18 @@ export const todoReducer = (state = initialTodoState, action) => {
           };
     
         case "TOGGLETODO":
-          return {
-            ...state,
-            todos: shangeCompleted(action.idEl, state.todos)
-          };
+          return {...state,
+            todos: state.todos.map(todo => {
+            if (todo.id === action.idEl) {
+              todo.completed = !todo.completed
+              return todo
+            }
+            return  todo
+          })}
+  
         case "REMOVETODO":
-          return {
-            ...state,
-            todos: deletTodo(action.idEl, state.todos),
-          };
+          return {...state, 
+            todos: [...state.todos.filter(el => el.id !== action.idEl)]}
     
         default:
           return state;

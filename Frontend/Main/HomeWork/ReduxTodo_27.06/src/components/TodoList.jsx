@@ -21,6 +21,8 @@ const dispatch = useDispatch()
 
   const handleToggleTodo = (id) => {
     dispatch(toggleTodo(id))
+    console.log(id)
+    console.log(todos)
     setHandle(!handle)
   }
 
