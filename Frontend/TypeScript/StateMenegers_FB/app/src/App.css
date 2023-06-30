@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+  display: grid;
+  grid-template-areas: "head head"
+                       "nav  add"
+                       "nav  list";
+grid-template-rows: auto;
+grid-template-columns: auto 1fr;
+
+}
+.header{
+  grid-area: head;
+}
+.aside{
+  grid-area: nav;
+}
+.addPost{
+  grid-area: add;
+}
+.postList{
+  grid-area: list;
+}
+
