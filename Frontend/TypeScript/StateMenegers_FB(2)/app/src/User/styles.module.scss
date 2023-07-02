@@ -1,0 +1,11 @@
+.user{
+    height: 30px;
+    width: 30px;
+    border-radius:50%;
+    padding-top: 3px;
+    display: inline-block;
+    & img {
+        height: 30px;
+        width: 30px;
+    }
+}

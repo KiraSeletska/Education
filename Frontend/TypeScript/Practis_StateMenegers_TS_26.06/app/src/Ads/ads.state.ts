@@ -1,6 +1,6 @@
 import { dispatch, type Reducer } from "./connect";
 
-export const adsInitialState = {
+export const adsInitialState = {//postsState
   titleArray: ["string"],
 };
 
@@ -22,7 +22,7 @@ export const reducer: Reducer<{ Ads: typeof adsInitialState }> = (
       ...state,
       Ads: {
         ...state.Ads,
-        titleArray: state.Ads.titleArray.map(
+        titleArray: state.Ads.titleArray.filter(
           (_, ind) => ind !== action.payload
         ),
       },
