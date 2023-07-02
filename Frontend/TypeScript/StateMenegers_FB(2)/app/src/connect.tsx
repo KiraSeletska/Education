@@ -32,7 +32,6 @@ export function connect<T extends {}, P>(
       const listener = () => {
         mapStatetoProps(stateSaver) !== newProps && 
         setCount((prev) => prev + 1)};
-        console.log(stateSaver)
       listeners.push(listener)
       return () => {listeners.splice(listeners.indexOf(listener), 1)};
     }, [newProps]);

@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import { postsState } from "./postState";
-import { connect } from "../conect";
+import { connect } from "../connect";
 import {
   faThumbsUp,
   faMessage,
@@ -38,8 +38,7 @@ const Post = (props: typeof postsState) => {
 };
 
 export const PostContainer = connect(
-  (state: typeof initialState) => state.Ads,
+  (state: typeof initialState) => state.Posts,
   Post
 );
 
-console.log(postsState.posts);

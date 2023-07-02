@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { createStore } from './conect';
+import { createStore } from './connect';
 import { composedRedusers, initialState } from './store';
 
 

@@ -2,49 +2,49 @@ import styles from './styles.module.scss'
 import { User } from '../User'
 import { faShare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { postsState } from '../Posts/postState'
-import { connect } from '../conect'
-import { useEffect, useState } from 'react'
+import { connect, dispatch } from '../connect'
+import { useState } from 'react'
+import { initialState } from '../store'
 
-export const AddPost = () => {
 
-    const [textP, setTextP] =useState('')
+ const AddPost = () => {
 
-    const sendPost = (e:any) => {
-        e.preventDefault()
-
+    const [textP, setTextP] = useState('')
         const newUserPost = {
-            title: '',
+            title: '111',
             text: textP
-
         }
-    }
-useEffect(()=>{
 
-},[textP])
+const addPost: React.FormEventHandler = (e) => {
+    e.preventDefault();
+    
+    dispatch({
+        type: "addUserPost",
+        payload: {...newUserPost},
+      });
 
+      setTextP('')
+      console.log(initialState)
+}
+  
     return (
         <div className={styles.addPostWrapper}>
-            <form action="" onChange={(e)=>sendPost(e)}>
+            <form action="" onSubmit={(e)=>addPost(e)}>
                 <User/>
                 <input type="text" placeholder='Add post...'
-                onChange={(e)=> console.log(e.target.value)}
+                value={textP}
+                onChange={(e)=> setTextP(e.target.value)}
                 ></input>
-                <button type='submit'><FontAwesomeIcon icon={faShare} /></button>
+                <button type='submit'
+                onClick={()=>{}}
+                ><FontAwesomeIcon icon={faShare} /></button>
             </form>
         </div>
     )
 }
-/*
- const AddUserPost = () => {
-    return (
-        <div className={styles.addPostWrapper}>
-            <form action="">
-                <User/>
-                <input type="text" placeholder='Add post...'/>
-                <button type='submit'><FontAwesomeIcon icon={faShare} /></button>
-            </form>
-        </div>
-    )
-}
-export const AddPost = connect(postsState, AddUserPost);*/
+
+export const AddPostContainer = connect(
+    (state: typeof initialState) => state.Posts,
+    AddPost
+  );
+  

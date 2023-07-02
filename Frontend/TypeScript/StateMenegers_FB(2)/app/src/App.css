@@ -1,11 +1,11 @@
 .App {
   text-align: center;
   display: grid;
-  grid-template-areas: "head head"
-                       "nav  add"
-                       "nav  list";
+  grid-template-areas: "head head head"
+                       "nav  add ads"
+                       "nav  list ads";
 grid-template-rows: auto;
-grid-template-columns: auto 1fr;
+grid-template-columns: auto 1fr 200px;
 
 }
 .header{
@@ -19,5 +19,9 @@ grid-template-columns: auto 1fr;
 }
 .postList{
   grid-area: list;
+}
+.ads{
+  grid-area: ads;
+padding-left: 20px;
 }
 

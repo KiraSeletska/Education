@@ -1,5 +1,11 @@
-import { composeReducers } from "./conect";
-import { reducer, postsState } from "./Posts/postState";
+import { userPostsRostsReducer } from "./AddPost/userPostState";
+import { adsReducer, adsState } from "./AdsList/adsState";
+import { composeReducers } from "./connect";
+import { postsReducer, postsState } from "./Posts/postState";
 
-export const composedRedusers = composeReducers(reducer);
-export const initialState = { Ads: postsState };
+export const composedRedusers = composeReducers(postsReducer , adsReducer, userPostsRostsReducer);
+export const initialState = { Posts: postsState , Ads: adsState};
+//export const initialState = postsState;
+console.log(initialState)
+
+

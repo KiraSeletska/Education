@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import { Header } from './Header';
 import { AsideMenu } from './AsideMenu';
-import { AddPost } from './AddPost';
-import { PostList } from './PostsList';
+//import { AddPost } from './AddPost';
 import { PostContainer } from './Posts';
+import { AdsContainer } from './AdsList';
+import { AddPostContainer } from './AddPost';
 
 export const getRandomID = () => {
   const min = 0;
@@ -18,8 +19,11 @@ function App() {
     <div className="App">
       <div className='header'><Header /></div>
 <div className='aside'><AsideMenu/> </div>
-<div className='addPost'><AddPost/> </div>
+{/*<div className='addPost'><AddPost/> </div>*/}
+<div className='addPost'><AddPostContainer /> </div>
+
 <div className='postList'>< PostContainer/></div>
+<div className='ads'><AdsContainer/></div>
 
     </div>
   );
