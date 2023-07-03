@@ -1,4 +1,4 @@
-import { PostContainer } from '../Posts'
+import { PostContainer } from '../PostContainer'
 import styles from './styles.module.scss'
 
 

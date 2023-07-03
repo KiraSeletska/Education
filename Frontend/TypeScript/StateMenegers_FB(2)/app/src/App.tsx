@@ -3,7 +3,7 @@ import './App.css';
 import { Header } from './Header';
 import { AsideMenu } from './AsideMenu';
 //import { AddPost } from './AddPost';
-import { PostContainer } from './Posts';
+import { PostContainer } from './PostContainer';
 import { AdsContainer } from './AdsList';
 import { AddPostContainer } from './AddPost';
 

@@ -1,5 +1,5 @@
 import { Reducer, dispatch } from "../connect";
-import { postsState } from "../Posts/postState";
+import { postsState } from "../PostContainer/postState";
 
 export const userPostsRostsReducer: Reducer<any> = (state, action) => {
     if (action.type === "addUserPost") {

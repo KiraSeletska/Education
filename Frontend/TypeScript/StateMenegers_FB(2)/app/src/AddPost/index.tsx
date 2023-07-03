@@ -8,16 +8,20 @@ import { initialState } from '../store'
 
 
  const AddPost = () => {
+    const timeElapsed = Date.now();
+    const time = new Date(timeElapsed);
+    const acttime = time.toLocaleDateString()
 
     const [textP, setTextP] = useState('')
         const newUserPost = {
+            id: '1111',
+            date: acttime,
             title: '111',
             text: textP
         }
 
 const addPost: React.FormEventHandler = (e) => {
     e.preventDefault();
-    
     dispatch({
         type: "addUserPost",
         payload: {...newUserPost},
