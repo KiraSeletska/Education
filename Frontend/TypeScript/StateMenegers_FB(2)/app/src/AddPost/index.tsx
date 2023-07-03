@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { connect, dispatch } from '../connect'
 import { useState } from 'react'
 import { initialState } from '../store'
+import { actions } from './userPostState'
 
 
  const AddPost = () => {
@@ -16,19 +17,20 @@ import { initialState } from '../store'
         const newUserPost = {
             id: '1111',
             date: acttime,
+             groopName: 'aaaa',
             title: '111',
             text: textP
         }
 
 const addPost: React.FormEventHandler = (e) => {
     e.preventDefault();
-    dispatch({
-        type: "addUserPost",
-        payload: {...newUserPost},
-      });
+    actions.addUserPost({...newUserPost}
+      );
 
       setTextP('')
       console.log(initialState)
+
+     // dispatch({type: "addUserPost", payload: '123'})
 }
   
     return (

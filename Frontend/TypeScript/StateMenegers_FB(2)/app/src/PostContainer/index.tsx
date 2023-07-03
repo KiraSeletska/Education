@@ -16,7 +16,7 @@ const NewPost = (props: typeof postsState) => {
 };
 
 export const PostContainer = connect(
-  (state: typeof initialState) => state.Posts,
+  (state: typeof initialState) => state.Posts,//добавить еще один стейт
   NewPost
 );
 

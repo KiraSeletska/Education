@@ -27,16 +27,30 @@ export const postsReducer: Reducer<any> = (state, action) => {
   return state
 };
 
+export type postType = {
+  id: string,
+  date: string
+  groopName: string,
+  title: string,
+  text: string,
+}
+
+function addPostCreater (payload: postType) {
+  return {
+    type: 'addPost',
+    payload
+  }
+}
+
 setTimeout(() => {
-  dispatch({
-    type: "addPost",
-    payload: {
+  dispatch(addPostCreater({
       id: getRandomID(),
+      date: '12/12',
       groopName: 'Kitty',
       title: "1. What is Lorem Ipsum?",
       text: " And more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    },
-  });
+    
+  }));
 }, 1000);
 
 setTimeout(() => {

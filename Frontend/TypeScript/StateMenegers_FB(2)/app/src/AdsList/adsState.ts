@@ -17,7 +17,7 @@ export const adsState = {
   ],
 };
 
-export const adsReducer: Reducer<any> = (state, action) => {
+export const adsReducer: Reducer<any> = (state, action) => {//change name to replace
   if (action.type === "addNewAd") {
     return {
       ...state,
