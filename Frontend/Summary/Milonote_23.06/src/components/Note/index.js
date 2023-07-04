@@ -9,6 +9,7 @@ export const Note = forwardRef(({ top, left }, ref) => {
     setIsEditable(true);
     const cancel = (evt) => {
       let target = evt.target;
+      console.log(target)
       while (target) {
         if (target === noteRef.current) {
           return;

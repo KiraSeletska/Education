@@ -6,16 +6,17 @@ import { connect, dispatch } from "../../connect";
 import { useState } from "react";
 import { initialState } from "../../store";
 import { actions } from "./userPostState";
-import { getTime } from "../../App";
+import { getRandomID, getTime } from "../../App";
 
 const AddPost = () => {
   const [textP, setTextP] = useState("");
   const newUserPost = {
-    id: "1111",
+    id: getRandomID()+'1',
     date: getTime(),
     groopName: "aaaa",
     title: "",
     text: textP,
+    like: false
   };
 
   const addPost: React.FormEventHandler = (e) => {

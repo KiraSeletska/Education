@@ -9,7 +9,7 @@ const NewPost = (props: typeof postsState) => {
   return (
     <div>
       {props.posts.map((el) => (
-      <Post title={el.title} text={el.text} groopName={el.groopName} id={el.id}/>
+      <Post key={el.id} title={el.title} text={el.text} groopName={el.groopName} id={el.id} like={el.like}/>
       ))}
     </div>
   );

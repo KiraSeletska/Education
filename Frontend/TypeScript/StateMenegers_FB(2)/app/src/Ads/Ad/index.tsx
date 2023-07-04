@@ -2,7 +2,7 @@ import { FC } from "react";
 import styles from "./styles.module.scss";
 
 interface AdProps {
-  img: any;
+  img: string;
   title: string;
   website: string;
 }

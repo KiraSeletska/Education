@@ -1,5 +1,5 @@
 import { Reducer, dispatch } from "../../connect";
-import img from "../../images/smartphone.svg"
+import img from "../../images/smartphone.svg";
 import img2 from "../../images/smartphone2.svg";
 
 export const adsState = {
@@ -17,24 +17,36 @@ export const adsState = {
   ],
 };
 
-export const adsReducer: Reducer<any> = (state, action) => {//change name to replace
+export const replaceReducer: Reducer<any> = (state, action) => {
+  //change name to replace
   if (action.type === "addNewAd") {
     return {
       ...state,
       Ads: {
         ...state.Ads,
-      ads: [...action.payload],
-      }
+        ads: [...action.payload],
+      },
     };
- }
-  return state
+  }
+  return state;
 };
 
-setInterval(() => {
-  dispatch({
+export type adType = {
+  image: string;
+  title: string;
+  website: string;
+}[];
+function addAdsCreater(payload: adType) {
+  return {
     type: "addNewAd",
-    payload: [
-     {
+    payload,
+  };
+}
+
+setInterval(() => {
+  dispatch(
+    addAdsCreater([
+      {
         image: img2,
         title: "Phones",
         website: "phones.com",
@@ -45,14 +57,13 @@ setInterval(() => {
         title: "NEW Iphone",
         website: "newIphine.com",
       },
-    ],
-  });
+    ])
+  );
 }, 3000);
 
 setInterval(() => {
-  dispatch({
-    type: "addNewAd",
-    payload: [
+  dispatch(
+    addAdsCreater([
       {
         image: img,
         title: "Phones",
@@ -63,6 +74,6 @@ setInterval(() => {
         title: "Phones2",
         website: "anithe/phones.com",
       },
-    ],
-  });
+    ])
+  );
 }, 6000);
