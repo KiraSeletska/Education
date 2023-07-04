@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' 
 import './index.css'
 import App from './App'
-import { ItemsPage } from 'Pages/ItemsPage'
-import { Timer } from 'components/Timer'
+import { ItemsPage } from './Pages/ItemsPage'
+import { SingleItemPage } from './Pages/SingleItemPage'
+import { Timer } from './components/Timer'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
     {
       path: '/items',
       element: <ItemsPage/>
+
+    },
+    {
+      path: '/items/:id',
+      element: <SingleItemPage/>
 
     },
     ]

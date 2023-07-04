@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 
+type FuncDictionary = {
+  [index: string]: (...args: any[]) => any;
+};
+
 interface Action {
   type: string;
   payload: any;
@@ -22,16 +26,19 @@ export function createAction<T extends unknown[]>(
   };
 }
 
-type Actions<T extends {}> = {
+type Actions<T extends FuncDictionary> = {
   [K in keyof T]: (...args: Parameters<T[K]>) => void;
-}
+};
 
-export function createActions<T extends {}> (actions: T): Actions<T>{
-return Object.keys(actions)//Запомнить, как паттерн
-  .reduce((acc, key)=>
-          (acc[key] = createAction(key as string, actions[key]))
-          && acc,
-      {} as Actions<T>)
+export function createActions<T extends FuncDictionary>(
+  actions: T
+): Actions<T> {
+  return Object.keys(actions) //Запомнить, как паттерн
+    .reduce(
+      (acc, key) =>
+        (acc[key] = createAction(key as string, actions[key])) && acc,
+      {} as Actions<T>
+    );
 }
 
 export function dispatch(action: Action) {
@@ -62,18 +69,15 @@ export function connect<T extends {}, P>(
   };
 }
 
-//export function composeReducers<T1 extends {}, T2 extends{}>(r1: Reducer<T1>, r2: Reducer<T2>): Reducer<T1 & T2>
-
 type CombinedReducer<T extends unknown[]> = Reducer<CombinedState<T>>;
 
-type CombinedState<T extends unknown[]> =
-  T extends [Reducer<infer R>]
-    ? R
-    : T extends [Reducer<infer R1>, ...infer REST]
-      ? R1 & CombinedState<REST>
-      : {};
+type CombinedState<T extends unknown[]> = T extends [Reducer<infer R>]
+  ? R
+  : T extends [Reducer<infer R1>, ...infer REST]
+  ? R1 & CombinedState<REST>
+  : {};
 
-export function composeReducers<T extends Reducer <any>[]>(
+export function composeReducers<T extends Reducer<any>[]>(
   ...reducers: T
 ): CombinedReducer<T> {
   return (state, action) =>

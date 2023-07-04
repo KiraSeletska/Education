@@ -48,7 +48,9 @@ export const ItemsPage = () => {
     [items, postItemHandler, deleteItemHandler]
   )
   return (
-    <ApiContext.Provider value={memoizedValue}>
+    <ApiContext.Provider 
+// @ts-ignore
+    value={memoizedValue}>
       <div className={classes.gridContainer}>
         <div className={classes.addItemContainer}>
           <h1 className={classes.header}>E-shop</h1>

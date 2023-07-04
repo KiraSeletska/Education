@@ -1,11 +1,13 @@
 import { faThumbsUp, faMessage, faArrowUpRightFromSquare, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { getRandomID } from '../App'
+import { getRandomID, getTime } from '../../App'
 import styles from './srtyles.module.scss'
 import { FC } from 'react'
-import { OtherUser } from '../OtherUsers'
-import { initialState } from "../store";
-import { User } from '../User'
+import { OtherUser } from '../../OtherUsers'
+import { initialState } from "../../store";
+import { User } from '../../User'
+import { actions } from '../AddPost/userPostState'
+import { postType } from '../PostContainer/postState'
 
 interface PostProps {
     title: string,
@@ -15,21 +17,21 @@ interface PostProps {
 }
 
 export const Post: FC<PostProps> = ({title, text, groopName, id}) => {
-
-const timeElapsed = Date.now();
-const time = new Date(timeElapsed);
-const acttime = time.toLocaleDateString()
-
+  const deletPost = (idEl: string) => {
+    actions.deletUserPost(idEl)
+    console.log(idEl)
+  }
     return(
-    
             <div className={styles.postConteiner} key={getRandomID()}>
                 <div className={styles.topPost}>
                {id === '1111' ? <User/> : <OtherUser/>}
                     <div>
                         <p>{groopName}</p>
-                        <span>{acttime}</span>
+                        <span>{getTime()}</span>
                     </div>
-                    <button><FontAwesomeIcon icon={faXmark} /></button>
+                    <button><FontAwesomeIcon icon={faXmark} 
+                    onClick={()=>deletPost(id)}
+                    /></button>
                 </div>
               <h3>{title}</h3>
               <p>{text}</p>

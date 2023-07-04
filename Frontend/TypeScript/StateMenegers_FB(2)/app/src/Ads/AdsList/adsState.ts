@@ -1,6 +1,6 @@
-import { Reducer, dispatch } from "../connect";
-import img from "../images/smartphone.svg";
-import img2 from "../images/smartphone2.svg";
+import { Reducer, dispatch } from "../../connect";
+import img from "../../images/smartphone.svg"
+import img2 from "../../images/smartphone2.svg";
 
 export const adsState = {
   ads: [

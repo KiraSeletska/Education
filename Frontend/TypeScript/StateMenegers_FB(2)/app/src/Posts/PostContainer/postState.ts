@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-redeclare */
-import { getRandomID } from "../App";
-import { Reducer, dispatch } from "../connect";
+import { getRandomID } from "../../App";
+import { Reducer, dispatch } from "../../connect";
 
 export const postsState = {
   posts: [

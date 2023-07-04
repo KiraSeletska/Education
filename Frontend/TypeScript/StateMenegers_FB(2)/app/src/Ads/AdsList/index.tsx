@@ -1,8 +1,8 @@
-import { connect } from "../connect";
+import { connect } from "../../connect";
 import { Ad } from "../Ad";
 import { adsState } from "./adsState";
-import { initialState } from "../store";
-import { getRandomID } from "../App";
+import { initialState } from "../../store";
+import { getRandomID } from "../../App";
 
 //import { adsState } from "./adsState";
 /*<h3>Реклама</h3>*/
