@@ -1,4 +1,7 @@
+import { prefix } from "@fortawesome/free-brands-svg-icons";
+import { type } from "os";
 import React, { useEffect, useState } from "react";
+import { actions } from "./Posts/Post/postActionState";
 
 type FuncDictionary = {
   [index: string]: (...args: any[]) => any;
@@ -9,6 +12,18 @@ interface Action {
   payload: any;
 }
 
+/*
+export interface FeedStateItem {
+  id: number;
+  text: string;
+  isLiked: boolean;
+}
+
+type GeneralState = {
+  FeedArray: FeedStateItem[]
+}
+
+*/
 export type Reducer<T extends {}> = (state: T, action: Action) => T;
 
 const listeners: (() => void)[] = [];
@@ -26,6 +41,10 @@ export function createAction<T extends unknown[]>(
   };
 }
 
+type BranchesDictionary<S extends {}> = {
+  [index: string]: (state: S, action: Action) => Partial<S>;
+};
+
 type Actions<T extends FuncDictionary> = {
   [K in keyof T]: (...args: Parameters<T[K]>) => void;
 };
@@ -40,6 +59,53 @@ export function createActions<T extends FuncDictionary>(
       {} as Actions<T>
     );
 }
+
+type Patch<S extends {}> = (state: S, action: Action) => Partial<S>;
+/*
+export function createReducer<
+  S extends {},
+  P extends string,
+  T extends BranchesDictionary<S> = BranchesDictionary<S>
+>(prefix: P, branches: T): Reducer<{ [prefix in typeof prefix]: S }> {
+  const helper = (
+    state: { [prefix in typeof prefix]: S },
+    arg: Patch<S>,
+    action: Action
+  ) => ({
+    ...state,
+    [prefix]: {
+      ...state[prefix],
+      ...arg(state[prefix], action),
+    },
+  });
+  return (state, action) => {
+    const patch = (branches as any)[action.type];
+    if (patch) {
+      return helper(state, patch, patch);
+    }
+    return state;
+  };
+}*/
+
+export function createReducer<
+    S extends {},
+    P extends string,
+    T extends BranchesDictionary<S> = BranchesDictionary<S>
+    >(prefix: P, branches: T): Reducer<{[prefix in typeof prefix]: S}> {
+    const helperFunc = (state: {[prefix in typeof prefix]: S}, arg: Patch<S>, action: Action) => ({
+        ...state,
+        [prefix]: {
+            ...state[prefix],
+            ...(arg(state[prefix], action))
+        }
+    })
+    return (state, action) => {
+        const patch = (branches as any)[action.type]
+        if (patch) {
+            return helperFunc(state, patch, action)
+        }
+        return state;
+    }}
 
 export function dispatch(action: Action) {
   stateSaver = stateReducer(stateSaver, action);
@@ -58,7 +124,6 @@ export function connect<T extends {}, P>(
       const listener = () => {
         mapStatetoProps(stateSaver) !== newProps &&
           setCount((prev) => prev + 1);
-
       };
       listeners.push(listener);
       return () => {

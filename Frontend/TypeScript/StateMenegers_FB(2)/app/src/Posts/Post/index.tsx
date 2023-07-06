@@ -10,7 +10,7 @@ import styles from "./srtyles.module.scss";
 import { FC, useEffect, useState } from "react";
 import { OtherUser } from "../../OtherUsers";
 import { User } from "../../User";
-import { actions } from "../AddPost/userPostState";
+import { actions } from "./postActionState";
 
 interface PostProps {
   title: string;
@@ -27,7 +27,6 @@ export type ChangeText = {
 export const Post: FC<PostProps> = ({ title, text, groopName, id, like }) => {
   const [changeWindow, setchangeWindow] = useState(false);
   const [newText, setNewText] = useState(text);
-  const [idN, setIdN] = useState("");
 
   const deletPost = (idEl: string) => {
     actions.deletUserPost(idEl);
@@ -37,16 +36,33 @@ export const Post: FC<PostProps> = ({ title, text, groopName, id, like }) => {
     actions.likePost(idEl);
   };
 
-  const changeText = (e: string, idEl: string) => {
-    setNewText(e);
-    setIdN(idEl);
+  const changeText = (e: string) => {
+    setNewText(e);//передавать функцию можно
     setchangeWindow(false);
+    /*setchangeWindow(() => {
+      let payload = {
+        id: id,
+        text: newText,
+      };
+      actions.changeText(payload);
+      return false
+    })*/
+
   };
+/*
+setchangeWindow(() => {
+  let payload = {
+    id: id,
+    text: newText,
+  };
+  actions.changeText(payload);
+  return false
+})*/
 
   useEffect(() => {
     (() => {
       let payload = {
-        id: idN,
+        id: id,
         text: newText,
       };
       actions.changeText(payload);
@@ -73,7 +89,7 @@ export const Post: FC<PostProps> = ({ title, text, groopName, id, like }) => {
         onSubmit={(e) => e.preventDefault()}>
         <textarea
           autoFocus
-          onBlur={(e) => changeText(e.target.value, id)}
+          onBlur={(e) => changeText(e.target.value)}
           defaultValue={newText}
         />
       </form>

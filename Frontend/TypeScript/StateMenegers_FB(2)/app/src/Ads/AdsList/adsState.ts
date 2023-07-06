@@ -19,7 +19,7 @@ export const adsState = {
 
 export const replaceReducer: Reducer<any> = (state, action) => {
   //change name to replace
-  if (action.type === "addNewAd") {
+  if (action.type === "replaceAds") {
     return {
       ...state,
       Ads: {
@@ -36,16 +36,16 @@ export type adType = {
   title: string;
   website: string;
 }[];
-function addAdsCreater(payload: adType) {
+function replaceAdsCreater(payload: adType) {
   return {
-    type: "addNewAd",
+    type: "replaceAds",
     payload,
   };
 }
 
 setInterval(() => {
   dispatch(
-    addAdsCreater([
+    replaceAdsCreater([
       {
         image: img2,
         title: "Phones",
@@ -63,7 +63,7 @@ setInterval(() => {
 
 setInterval(() => {
   dispatch(
-    addAdsCreater([
+    replaceAdsCreater([
       {
         image: img,
         title: "Phones",

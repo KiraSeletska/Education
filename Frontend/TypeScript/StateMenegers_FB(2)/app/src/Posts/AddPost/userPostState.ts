@@ -4,12 +4,12 @@ import { postType } from "../PostContainer/postState";
 
 export const actions = createActions({
   addUserPost: (payload: postType) => payload,
-  deletUserPost: (payload: string) => payload,
-  likePost: (payload: string) => payload,
-  changeText: (payload: ChangeText) => payload,
+  //deletUserPost: (payload: string) => payload,
+  //likePost: (payload: string) => payload,
+ // changeText: (payload: ChangeText) => payload,
 });
 
-export const Reducers: Reducer<any> = (state, action) => {
+export const addPostReducer: Reducer<any> = (state, action) => {
   if (action.type === "addUserPost") {
     return {
       ...state,
@@ -18,7 +18,8 @@ export const Reducers: Reducer<any> = (state, action) => {
         posts: [action.payload, ...state.Posts.posts],
       },
     };
-  }
+  
+}/*
   if (action.type === "deletUserPost") {
     return {
       ...state,
@@ -43,6 +44,6 @@ export const Reducers: Reducer<any> = (state, action) => {
         posts: state.Posts.posts.map((post: postType) =>
           post.id === action.payload.id ? { ...post, text: action.payload.text} : post)},
     };
-  }
+  }*/
   return state;
 };
