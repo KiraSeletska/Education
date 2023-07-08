@@ -10,22 +10,17 @@ const router = createBrowserRouter([
       element: <App />,
       children: [
         {
-          path: "/categories",
-          element: <div>Категории будут тут</div>
+          path: "/mainPage",
+          element: <div>Главная страница тут</div>
   
         },
         {
-        path: "/coupon",
-        element: <div>А купоны тут</div>
+        path: "/propdacts",
+        element: <div>Продукты все тут</div>
       },
       {
         path: "/sales",
         element: <div>Распродажи тут</div>
-  
-      },
-      {
-        path: "/contacts",
-        element:  <div>А наши контакты тут</div>
   
       },
       {

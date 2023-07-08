@@ -88,8 +88,9 @@ export function createReducer<
 }*/
 
 export function createReducer<
-    S extends {},
-    P extends string,
+P extends string,
+     // S extends {[s: string]: any},
+     S extends {},
     T extends BranchesDictionary<S> = BranchesDictionary<S>
     >(prefix: P, branches: T): Reducer<{[prefix in typeof prefix]: S}> {
     const helperFunc = (state: {[prefix in typeof prefix]: S}, arg: Patch<S>, action: Action) => ({
@@ -100,6 +101,7 @@ export function createReducer<
         }
     })
     return (state, action) => {
+      console.log(state, action)
         const patch = (branches as any)[action.type]
         if (patch) {
             return helperFunc(state, patch, action)
@@ -108,6 +110,7 @@ export function createReducer<
     }}
 
 export function dispatch(action: Action) {
+  console.log(action)
   stateSaver = stateReducer(stateSaver, action);
   listeners.forEach((el) => el());
 }

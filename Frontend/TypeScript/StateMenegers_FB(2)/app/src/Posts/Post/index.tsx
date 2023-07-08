@@ -29,6 +29,7 @@ export const Post: FC<PostProps> = ({ title, text, groopName, id, like }) => {
   const [newText, setNewText] = useState(text);
 
   const deletPost = (idEl: string) => {
+    console.log(idEl)
     actions.deletUserPost(idEl);
   };
 

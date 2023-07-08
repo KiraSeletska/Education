@@ -2,11 +2,12 @@ import { addPostReducer } from "./Posts/AddPost/userPostState";
 import { replaceReducer, adsState } from "./Ads/AdsList/adsState";
 import { composeReducers } from "./connect";
 import { postsReducer, postsState } from "./Posts/PostContainer/postState";
-import { postActionReducer } from "./Posts/Post/postActionState";
+import { postActionReducer /*reducer*/ } from "./Posts/Post/postActionState";
 
 export const composedRedusers = composeReducers(
   postsReducer,
   postActionReducer,
+  //reducer,
   replaceReducer,
   addPostReducer
 );

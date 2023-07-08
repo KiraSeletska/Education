@@ -3,7 +3,8 @@ import classes from './categoriesListPage.module.css'
 import { useGetAllCategoriesQuery } from '../redux/apiSlice'
 
 export const CategoriesListPage = () => {
-  const {data} = useGetAllCategoriesQuery() 
+const {data, isLoading, error} = useGetAllCategoriesQuery()
+console.log(isLoading, data, error)
   return (
     <>
       <h1>Магазин лучших вещей</h1>

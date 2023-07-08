@@ -5,10 +5,12 @@ export const sliceApi = createApi({
     reducerPath: 'products',
     // основная часть запроса - неизменяемая
     baseQuery: fetchBaseQuery({ baseUrl: "https://fakestoreapi.com/products/" }),
+    //http://localhost:3333
     // вторая часть запроса - динамическая
     endpoints: (builder) => ({
-        getAllCategories: builder.query({
+        getAllCategories: builder.query({//query - get
             query: () => 'categories/'
+            ///categories/all
         }),
         getProductsByCategory: builder.query({
             query: (category) => `category/${category}/`,

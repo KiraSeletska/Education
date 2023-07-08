@@ -3,6 +3,7 @@ import { ChangeText } from ".";
 import { createActions, createReducer } from "../../connect";
 import { postType } from "../PostContainer/postState";
 import { initialState } from "../../store";
+import { act } from "@testing-library/react";
 
 export const actions = createActions({
   deletUserPost: (payload: string) => payload,
@@ -22,19 +23,27 @@ const helper = (state: any, arg: any) => ({
 export const reducer = createReducer(
   'Posts',
   {
-    deletUserPost: (action, state) => ({
+    deletUserPost: (state, action) => ({
       posts: state.posts.map((post: postType) =>
         post.id === action.payload ? { ...post, like: !post.like } : post
       ),
     }),
 
-    likePost:  (action, state) => ({
+    deleteUserPost: (state, action) => {
+      console.log(state, action)
+      return {
+        posts: state.posts.map((post: postType) =>
+        post.id === action.payload ? { ...post, like: !post.like } : post)
+      }
+    },
+
+    likePost:  (state, action) => ({
       posts: state.posts.map((post: postType) =>
         post.id === action.payload ? { ...post, like: !post.like } : post
       ),
     }),
 
-    changeText:  (action, state) => ({
+    changeText:   (state, action) => ({
       posts: state.posts.map((post: postType) =>
         post.id === action.payload.id
           ? { ...post, text: action.payload.text } : post

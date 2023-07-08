@@ -8,24 +8,20 @@ export const Header = () => {
     <header className={styles.headerContainer}>
       <div className={styles.logoContainer}>
         <img src={logo} alt="Logo" />
-        <button>Каталог</button>
+        <button>Catalog</button>
       </div>
       <nav>
         <ul className={styles.list}>
-          <li>
-            <NavLink to="/categories">Категории</NavLink>
+        <li>
+            <NavLink to="/mainPage">Main Page</NavLink>
           </li>
           <li>
-            <NavLink to="/coupon">Купон</NavLink>
+            <NavLink to="/propdacts">All propducts</NavLink>
           </li>
           <li>
-            <NavLink to="/sales">Акции</NavLink>
+            <NavLink to="/sales">All sales</NavLink>
           </li>
           <li>
-            <NavLink to="/contacts">Контакты</NavLink>
-          </li>
-          <li>
-       
             <NavLink to="/shoppingBag"><img src={shoppingBag} alt="Basket" /></NavLink>
           </li>
         </ul>
