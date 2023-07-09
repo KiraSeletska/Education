@@ -21,5 +21,7 @@ export const sliceApi = createApi({
     })
 })
 
-export const { useGetAllCategoriesQuery, useGetProductsByCategoryQuery, useGetProductsByProductQuery } = sliceApi; 
+export const { useGetAllCategoriesQuery, 
+    useGetProductsByCategoryQuery, 
+    useGetProductsByProductQuery } = sliceApi; 
 
