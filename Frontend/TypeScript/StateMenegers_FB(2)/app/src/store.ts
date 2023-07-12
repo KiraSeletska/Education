@@ -7,7 +7,7 @@ import { postActionReducer /*reducer*/ } from "./Posts/Post/postActionState";
 export const composedRedusers = composeReducers(
   postsReducer,
   postActionReducer,
-  //reducer,
+  //reducer, - нужен
   replaceReducer,
   addPostReducer
 );

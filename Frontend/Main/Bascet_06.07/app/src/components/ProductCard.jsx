@@ -1,6 +1,8 @@
 import classes from './productCard.module.css'
 
 export const ProductCard = ({ title, image, description }) => {
+
+  
   return (
     <div className={classes.cardContainer}>
       <div>{title}</div>

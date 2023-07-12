@@ -4,10 +4,11 @@ import { useGetAllCategoriesQuery } from '../redux/apiSlice'
 
 export const CategoriesListPage = () => {
 const {data, isLoading, error} = useGetAllCategoriesQuery()
-console.log(isLoading, data, error)
+//console.log( data )
+//IsLoading ? <div>LOADIN <div> : ...
   return (
     <>
-      <h1>Магазин лучших вещей</h1>
+    { isLoading ? <div> LOADIN </div> : 
       <div className={classes.container}>
         {data &&
           data.map((el, index) => (
@@ -15,7 +16,7 @@ console.log(isLoading, data, error)
               <div className={classes.categoryContainer}>{el}</div>
             </NavLink>
           ))}
-      </div>
+      </div>}
     </>
   )
 }

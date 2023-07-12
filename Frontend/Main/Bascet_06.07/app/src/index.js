@@ -47,6 +47,3 @@ root.render(
   </React.StrictMode>
 )
 
-const a = "test";
-const b = { [a]: "Hello" }
-console.log(b)

@@ -1,10 +1,7 @@
-import { prefix } from "@fortawesome/free-brands-svg-icons";
-import { type } from "os";
 import React, { useEffect, useState } from "react";
-import { actions } from "./Posts/Post/postActionState";
 
 type FuncDictionary = {
-  [index: string]: (...args: any[]) => any;
+  [index: string]: (...arg1: any[]) => any;
 };
 
 interface Action {
@@ -87,13 +84,24 @@ export function createReducer<
   };
 }*/
 
+const sum = (a: number, b: number = 3) => {
+
+}
+
+sum(1, 2)
+sum(3)
+
+type Bla<P extends string> = {
+  [key in P]: {}
+}
+
 export function createReducer<
 P extends string,
      // S extends {[s: string]: any},
      S extends {},
     T extends BranchesDictionary<S> = BranchesDictionary<S>
-    >(prefix: P, branches: T): Reducer<{[prefix in typeof prefix]: S}> {
-    const helperFunc = (state: {[prefix in typeof prefix]: S}, arg: Patch<S>, action: Action) => ({
+    >(prefix: P, branches: T): Reducer<{[key in /*typeof prefix*/ P]: S}> {
+    const helperFunc = (state: {[key in /*typeof prefix*/ P]: S}, arg: Patch<S>, action: Action) => ({
         ...state,
         [prefix]: {
             ...state[prefix],
@@ -145,6 +153,16 @@ type CombinedState<T extends unknown[]> = T extends [Reducer<infer R>]
   : T extends [Reducer<infer R1>, ...infer REST]
   ? R1 & CombinedState<REST>
   : {};
+
+/*
+any[] - массив чего угодно
+any{} - не существет, потому, что обьект
+[any] - массив с один any
+[any, somAny] - массив с двумя (тапл)
+Somthing<T> - может быть описанием типа и его обьвлением (Somthing - дженерик тп, T  - его аргумент (по примеру ниже))
+T - просто тип
+<Somthing> - Somthing - аргумент дженерика
+*/
 
 export function composeReducers<T extends Reducer<any>[]>(
   ...reducers: T
