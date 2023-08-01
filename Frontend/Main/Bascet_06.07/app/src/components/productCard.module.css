@@ -11,3 +11,6 @@
 .cardContainer img {
   width: 100px;
 }
+.hiddenDescr{
+  display: none;
+}

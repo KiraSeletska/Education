@@ -9,7 +9,8 @@ import { ProductsListPage } from './pages/ProductsListPage'
 import { BasketPage } from './pages/BasketPage'
 import './index.css'
 import { SingleProductPage } from './pages/SingleProductPage'
-import { store } from './redux/store'
+import { store, persistor } from './redux/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const router = createBrowserRouter([
   {
@@ -40,9 +41,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
       <RouterProvider router={router}>
         <App />
         </RouterProvider>
+        </PersistGate>
       </Provider>
   </React.StrictMode>
 )
