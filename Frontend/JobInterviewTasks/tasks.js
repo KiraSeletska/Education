@@ -2,7 +2,7 @@
 const unique = (arr) => {
     let newArr = [];
     arr.filter((el) => !newArr.includes(el) && newArr.push(el));
-    console.log(newArr);
+    return newArr;
   };
 
   const unique2 = (arr) => {
@@ -12,12 +12,12 @@ const unique = (arr) => {
       }
       return [...acc, item];
     }, []);
-    console.log(result);
+ return result;
   };
   const unique3 = (arr) =>
     arr.filter((item, index, self) => self.indexOf(item) === index);
 
-   unique([1, 1, 2, 2, 4, 2, 3, 7, 3]); // => [1, 2, 4, 3, 7]
+ console.log( unique([1, 1, 2, 2, 4, 2, 3, 7, 3])); // => [1, 2, 4, 3, 7]
   /********************************************************************************************************************************************************* */
   /*
 Необходимо написать функцию, принимающую 
@@ -33,7 +33,6 @@ flat([1, [2, [3, [4,5]]]]); // => [1, 2, 3, 4, 5]
 
   const flat = (arr) => {
     let res = [];
-
     arr.forEach((el) => {
       Array.isArray(el) ? (res = res.concat(flat(el))) : res.push(el);
     });
