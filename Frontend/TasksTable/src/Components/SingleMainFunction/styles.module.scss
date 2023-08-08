@@ -1,0 +1,56 @@
+.more {
+  color: red;
+}
+.constText {
+  color: rgb(156, 156, 200);
+}
+.letText {
+  color: rgb(156, 156, 200);
+}
+.equals {
+  color: gray;
+}
+.exclamationPoint {
+  color: rgb(255, 15, 199);
+  font-weight: 600;
+}
+.functionName {
+  color: #fffb00;
+}
+.returnV {
+  color: #ad5bff;
+}
+.obj {
+  color: #ff7300;
+}
+.operand {
+  color: #00ffd5;
+}
+.notes {
+  color: #48ff00;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.container {
+  background: linear-gradient(45deg, #463b34, #192a32);
+  padding: 10px;
+ // box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+
+.keyWords {
+  font-size: 11px;
+  max-width: 60%;
+  float: right;
+  color: rgb(123, 123, 123);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-self: self-end;
+  gap: 5px;
+}

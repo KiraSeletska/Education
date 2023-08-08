@@ -1,0 +1,142 @@
+.more {
+  color: red;
+}
+.constText {
+  color: rgb(156, 156, 200);
+}
+.letText {
+  color: rgb(156, 156, 200);
+}
+.equals {
+  color: gray;
+}
+.exclamationPoint {
+  color: rgb(255, 15, 199);
+  font-weight: 600;
+}
+.functionName {
+  color: #fffb00;
+}
+.returnV {
+  color: #ad5bff;
+}
+.obj {
+  color: #ff7300;
+}
+.operand {
+  color: #00ffd5;
+}
+.notes {
+  color: #48ff00;
+}
+.readMore {
+  text-align: right;
+  font-size: 12px;
+  margin-top: 10px;
+  color: #00ffd5;
+}
+
+.wrapper {
+  border: none;
+  outline: none;
+  color: #cab9b9;
+  cursor: pointer;
+  position: relative;
+  border-radius: 10px;
+  transition: 1s;
+}
+.mainContainer {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 5px;
+  height: 100px;
+//  width: 101%;
+ // box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+}
+
+.mainContainer .title {
+  display: block;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+.mainContainer h2 {
+  display: none;
+}
+.mainContainer .clue {
+  height: 50px;
+  display: block;
+  font-size: 10px;
+}
+.mainContainer h3 {
+  display: none;
+}
+.wrapper:hover {
+
+  z-index: 11111; 
+}
+
+.container {
+  background-color: rgb(23, 23, 23);
+  border-radius: 10px;
+  padding: 15px;
+  height: 30px;
+  display: none;
+  width: 100%;
+  animation: fadeOutFromBlock 5s ease-in-out;
+}
+.on {
+  display: block;
+  height: auto;
+  z-index: 1111;
+  transform: translate(0%, 20px);
+  animation: fadeInFromNone 0.5s ease-in-out;
+}
+
+.keyWords {
+  font-size: 11px;
+  max-width: 60%;
+  float: right;
+  color: rgb(160, 160, 160);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 5px;
+}
+.Unique .mainContainer{
+  background: linear-gradient(45deg, #463b34, #192a32);
+}
+.Flat .mainContainer{
+background: linear-gradient(45deg, #234416, #192a32);
+}
+.GetTreeValues .mainContainer{
+  background: linear-gradient(45deg, #2c1a3e, #142229);
+
+}
+.StringCompression .mainContainer{
+  background: linear-gradient(45deg, #273048, #142229);
+}
+
+.SortingOdd .mainContainer{
+  background: linear-gradient(45deg, #4b2d2d, #142229);
+}
+
+
+@keyframes fadeInFromNone {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutFromBlock {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

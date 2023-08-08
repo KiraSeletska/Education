@@ -1,29 +1,69 @@
+export const getRandomID = () => {
+  const min = 0;
+  const max = 1679615;
+  let int = Math.floor(Math.random() * (max - min + 1)) + min;
+  return int.toString(36);
+};
 
+const prototyp =   {
+  name: "",
+  keyWords: [""],
+  description: "",
+  id: getRandomID(),
+  exampleImag: "",
+  constText: 1,
+  functionName: "",
+  args: "()",
+  braces: 1,
+  body1: "",
+  body2: "",
+  body3: "",
+  body4: "",
+  body5: "",
+  body6: "",
+  body7: "",
+  body8: "",
+  body9: "",
+  body10: "",
+  body11:"",
+  body12:"",
+  body13: "",
+  body14: "",
+  body15: "",
+  return: 1,
+  returnValue: "",
+  functionCallArg: "()",
+  notes: "// => ",
+  otherSolutions: [],
+  images: []
+}
 
 export const DataArr = [
   {
-    enique: [
+    name: "Unique",
+    keyWords: ["array", "repeat"],
+    description: "Вывести только уникальные значения из массива",
+    id: getRandomID(),
+    exampleImag: "",
+    constText: 1,
+    functionName: " unique ",
+    equals: 1,
+    args: " (arr) ",
+    equalsMore: 1,
+    braces: 1,
+    body1: "let newArr = [];",
+    body2: " arr.filter((el) => !newArr.includes(el) && newArr.push(el));",
+    body3: "",
+    body4: "",
+    body5: "",
+    return: 1,
+    returnValue: "newArr",
+    functionCallArg: "([1, 1, 2, 2, 4, 2, 3, 7, 3])",
+    notes: "// => [1, 2, 4, 3, 7]",
+    otherSolutions: [
       {
-        name: "Enique",
-        exampleImag:'',
         constText: 1,
-        functionName: " unique ",
-        equals: 1,
-        args: " (arr) ",
-        equalsMore: 1,
-        braces: "",
-        body1: "let newArr = [];",
-        body2: " arr.filter((el) => !newArr.includes(el) && newArr.push(el));",
-        body3: "",
-        body4: "",
-        body5: "",
-        return: 1,
-        returnValue: "newArr",
-        functionCallArg: "([1, 1, 2, 2, 4, 2, 3, 7, 3])",
-        notes: "// => [1, 2, 4, 3, 7]",
-      },
-      {
-        constText: 1,
+        id: getRandomID(),
         functionName: " unique2 ",
         equals: 1,
         args: " (arr) ",
@@ -39,9 +79,9 @@ export const DataArr = [
         functionCallArg: "([1, 1, 2, 2, 4, 2, 3, 7, 3])",
         notes: "// => [1, 2, 4, 3, 7]",
       },
-
       {
         constText: 1,
+        id: getRandomID(),
         functionName: " unique3 ",
         equals: 1,
         args: " (arr) ",
@@ -59,68 +99,81 @@ export const DataArr = [
         notes: "// => [1, 2, 4, 3, 7]",
       },
     ],
+    images: [],
   },
-  { flat: [
-    {
-      name: "Flat",
-      exampleImag:  '',
-      constText: 1,
-      functionName: " flat ",
-      equals: 1,
-      args: " (arr) ",
-      equalsMore: 1,
-      braces: "",
-      body1: "let res = [];",
-      body2: " Array.isArray(el) ? (res = res.concat(flat(el))) : res.push(el);",
-      body3: "    });",
-      body4: "",
-      body5: "",
-      return: 1,
-      returnValue: "res",
-      functionCallArg: "([1, [2, [3, [4, 5]]]]))",
-      notes: "// => [1, 2, 3, 4, 5]"
-    },
-    {
-      constText: 1,
-      functionName: " flat2 ",
-      equals: 1,
-      args: " (arr) ",
-      equalsMore: 1,
-      braces: "",
-      body1: "arr.reduce(",
-      body2: "(acc, el) => (Array.isArray(el) ? [...acc, ...flat(el)] : [...acc, el]),",
-      body3: "[]",
-      body4: ");",
-      body5: "",
-      return: 1,
-      returnValue: "res",
-      functionCallArg: "([1, [2, [3, [4, 5]]]]))",
-      notes: "// => [1, 2, 3, 4, 5]"
-    }
-  ] },
+
   {
-    getTreeValues: [
+    name: "Flat",
+    keyWords: ["recursion", "array", "multidimensional"],
+    description:
+      "Преобразовать многомерный массив неограниченной вложенности в новый одномерный (рекурсия)",
+    id: getRandomID(),
+    exampleImag: "",
+    constText: 1,
+    functionName: " flat ",
+    equals: 1,
+    args: " (arr) ",
+    equalsMore: 1,
+    braces: 1,
+    body1: "let res = [];",
+    body2: " Array.isArray(el) ? (res = res.concat(flat(el))) : res.push(el);",
+    body3: "    });",
+    body4: "",
+    body5: "",
+    return: 1,
+    returnValue: "res",
+    functionCallArg: "([1, [2, [3, [4, 5]]]]))",
+    notes: "// => [1, 2, 3, 4, 5]",
+    otherSolutions: [
       {
-        name: "GetTreeValues",
-        exampleImag:  '../../images/exampleTree.jpg',
         constText: 1,
-        functionName: " getTreeValues ",
+        id: getRandomID(),
+        functionName: " flat2 ",
         equals: 1,
-        args: " (obg) ",
+        args: " (arr) ",
         equalsMore: 1,
         braces: "",
-        body1: "let res = [ obj.value ];",
-        body2: "if (Array.isArray(obj.children)) {",
-        body3: "obj.children.forEach(el => res = res.concat(getTreeValues(el)))",
-        body4: "}",
+        body1: "arr.reduce(",
+        body2:
+          "(acc, el) => (Array.isArray(el) ? [...acc, ...flat(el)] : [...acc, el]),",
+        body3: "[]",
+        body4: ");",
         body5: "",
         return: 1,
-        returnValue: " res;",
-        functionCallArg: "(tree)",
-        notes: "// => [1, 2, 3, 4, 5, 6, 7]",
+        returnValue: "res",
+        functionCallArg: "([1, [2, [3, [4, 5]]]]))",
+        notes: "// => [1, 2, 3, 4, 5]",
       },
+    ],
+    images: [],
+  },
+
+  {
+    name: "GetTreeValues",
+    keyWords: ["tree", "recursion"],
+    description:
+      "Дана структура ввиде дерева. Верните значение всех вергин дерева",
+    id: getRandomID(),
+    exampleImag: "../../images/exampleTree.jpg",
+    constText: 1,
+    functionName: " getTreeValues ",
+    equals: 1,
+    args: " (obg) ",
+    equalsMore: 1,
+    braces: 1,
+    body1: "let res = [ obj.value ];",
+    body2: "if (Array.isArray(obj.children)) {",
+    body3: "obj.children.forEach(el => res = res.concat(getTreeValues(el)))",
+    body4: "}",
+    body5: "",
+    return: 1,
+    returnValue: " res;",
+    functionCallArg: "(tree)",
+    notes: "// => [1, 2, 3, 4, 5, 6, 7]",
+    otherSolutions: [
       {
         constText: 1,
+        id: getRandomID(),
         functionName: " getTreeValues2 ",
         equals: 1,
         args: " (obg) ",
@@ -128,7 +181,8 @@ export const DataArr = [
         braces: "",
         body1: "let result = [obj.value]",
         body2: "if(obj.children){",
-        body3: "obj.children.forEach(el => result = [...result, ...getTreeValues2(el)])",
+        body3:
+          "obj.children.forEach(el => result = [...result, ...getTreeValues2(el)])",
         body4: "}",
         body5: "",
         return: 1,
@@ -138,6 +192,7 @@ export const DataArr = [
       },
       {
         constText: 1,
+        id: getRandomID(),
         functionName: " getTreeValues3 ",
         equals: 1,
         args: " ({value, children}) ",
@@ -145,7 +200,8 @@ export const DataArr = [
         braces: "",
         body1: "  let result = [value]",
         body2: "if(children){",
-        body3: "children.forEach(el => result = [...result, ...getTreeValues2(el)])",
+        body3:
+          "children.forEach(el => result = [...result, ...getTreeValues2(el)])",
         body4: "}",
         body5: "",
         return: 1,
@@ -155,6 +211,7 @@ export const DataArr = [
       },
       {
         constText: 1,
+        id: getRandomID(),
         functionName: " getTreeValues4 ",
         equals: 1,
         args: " ({value, children}) ",
@@ -166,39 +223,77 @@ export const DataArr = [
         body4: "",
         body5: "",
         return: 1,
-        returnValue: "[value].concat(children ? children.reduce((acc, curr) => acc.concat(getTreeValues4(curr)), []) : []);};",
+        returnValue:
+          "[value].concat(children ? children.reduce((acc, curr) => acc.concat(getTreeValues4(curr)), []) : []);};",
         functionCallArg: "(tree)",
         notes: "// => [1, 2, 3, 4, 5, 6, 7]",
-      }
-    ]
-  }, {
-    test: [{name: 'test1'}]
+      },
+    ],
+    images: [],
   },
   {
-    test: [{name: 'test2'}]
+    name: "StringCompression",
+    keyWords: ["string"],
+    description:
+      "Вернуть новую строку, в которой повторяющиеся буквы заменены количеством повторений.",
+    id: getRandomID(),
+    exampleImag: "",
+    constText: "",
+    functionName: " rle ",
+    args: " (str) ",
+    braces: 1,
+    body1: "const result = [str[0]];",
+    body2: "let count = 1;",
+    body3: "for (let i = 1; i < str.length; i++) {",
+    body4: "if (str[i] === str[i - 1]) { count++;",
+    body5: "	if (i === str.length - 1) {result.push(str[i]);",
+    body6: "	if (count > 1) {result.push(count);}",
+    body7: "}}",
+    body8: "} else {",
+    body9: "if (i > 1) {result.push(str[i - 1]);}",
+    body10: "if (i === str.length - 1) {result.push(str[i]);}",
+    body11: "if (count > 1) {result.push(count);}",
+    body12: "count = 1;",
+    body13: "}}",
+    body14: "",
+    body15: "",
+    return: 1,
+    returnValue: " result.join('');",
+    functionCallArg: "(tree)",
+    notes: "// => [1, 2, 3, 4, 5, 6, 7]",
+    otherSolutions: [],
+    images: []
   },
   {
-    test: [{name: 'test3'}]
-  },
-  {
-    test: [{name: 'test4'}]
-  },
-  {
-    test: [{name: 'test2'}]
-  },
-  {
-    test: [{name: 'test6'}]
-  },
-  {
-    test: [{name: 'test7'}]
-  },
-  {
-    test: [{name: 'test8'}]
-  },
-  {
-    test: [{name: 'test9'}]
-  },
-  {
-    test: [{name: 'test10'}]
+    name: "SortingOdd",
+    keyWords: ["array", "add", 'sorting'],
+    description: "возвращаю новый массив, в котором отсортированы все нечетные числа по возрастанию, в то время как чётные остаются на своих местах.",
+    id: getRandomID(),
+    exampleImag: "",
+    constText: "",
+    functionName: " oddSort ",
+    args: "(arr)",
+    braces: 1,
+    body1: "	arr.forEach((item, index) => {",
+    body2: "		if (item % 2 === 1) {",
+    body3: "			let sortNumber = item;",
+    body4: "			for (let i = 0; i < index; i++) {",
+    body5: "				if (arr[i] % 2 === 1) {",
+    body6: "					if (arr[i] > sortNumber) {",
+    body7: "						const tmp = sortNumber;",
+    body8: "						sortNumber = arr[i];",
+    body9: "						arr[i] = tmp;",
+    body10: "					}}}",
+    body11:"		arr[index] = sortNumber;",
+    body12:"",
+    body13: "",
+    body14: "",
+    body15: "	}});",
+    return: 1,
+    returnValue: "arr",
+    functionCallArg: "([7, 3, 4, 9, 5, 2, 17])",
+    notes: "// => [3, 5, 4, 7, 9, 2, 17]",
+    otherSolutions: [],
+    images: []
   },
 ];
