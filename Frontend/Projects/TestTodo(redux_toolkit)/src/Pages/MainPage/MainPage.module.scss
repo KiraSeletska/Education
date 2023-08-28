@@ -1,0 +1,45 @@
+.wrapper {
+    display: grid;
+    grid-template-areas: 
+    "time head head smallWeather"
+    '. . state .'
+    "mainTodo  mainTodo todoForToday weather"
+    "mainTodo  mainTodo todoForToday calendar";
+    grid-template-columns: 100px 200px 1fr 100px;
+grid-template-rows: auto;
+gap: 10px;
+overflow: hidden;
+& .addTodoFormContainer{
+    grid-area: head;
+}
+& .smallWeatherContainer{
+
+    grid-area: smallWeather;
+}
+& .todoListContainer{}
+& .mainTodoListContainer{
+    grid-area: mainTodo;
+}
+& .weatherContainer{
+    grid-area: weather;
+}
+& .todoForTodayContainer{
+    grid-area:todoForToday;
+}
+& .calendarWrapper{
+    grid-area: calendar;
+}
+& .timeWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+grid-area: time;
+}
+& .state{
+grid-area: state;
+}
+}
+/*
+.wrapper.wrapperTime{ Должно роботать, только поменянть клас в часах
+    grid-area: time;
+}*/

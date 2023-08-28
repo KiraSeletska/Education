@@ -1,0 +1,16 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+    & .time{
+
+    }
+    & .date{
+        font-size: 12px;
+    }
+    & .day{
+        font-size: 12px;
+        color: rgb(174, 174, 174);
+    }
+}

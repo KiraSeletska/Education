@@ -1,0 +1,30 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+   // gap: 10px;
+    color: white;
+    padding: 10px 0 5px;
+    border: 1px solid rgb(166, 166, 166, 0.3);
+    & .date{
+        font-size: 10px;
+        margin-bottom: 10px;
+
+    }
+    & .main{
+        color: white;
+    }
+    & img{
+        width: 60px;
+        height: 60px;
+        margin: auto;
+    }
+    & .temp{
+        & span{
+            color: rgb(214, 145, 81);
+            font-weight: 800;
+        }
+    }
+    & .description{
+        font-size: 10px;
+    }
+}

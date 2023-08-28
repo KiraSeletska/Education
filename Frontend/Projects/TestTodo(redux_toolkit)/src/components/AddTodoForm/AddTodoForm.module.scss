@@ -1,0 +1,39 @@
+.wrapper {
+  width: 80%;
+  margin: auto;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & form {
+    display: grid;
+    grid-template-columns: 1fr 150px 20px 150px 50px;
+    width: 100%;
+    gap: 10px;
+    height: 30px;
+    & input {
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.192);
+      backdrop-filter: blur(10px);
+    }
+    & .select {
+      background: rgba(255, 255, 255, 0.192);
+      backdrop-filter: blur(10px);
+      border-radius: 5px;
+      height: 30px;
+      & option {
+        color: rgb(84, 84, 84);
+      }
+      & input {
+        height: 30px;
+        width: 100%;
+      }
+    }
+    & button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
