@@ -1,0 +1,15 @@
+.infoWrapper{
+    width: 100%;
+    & .basicInfoWrapper{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 10px;
+        & .typeInfo{
+            color: #969696;
+            width: 80px;
+        }
+        & .info{
+            color: #252525;
+        }
+    }
+}
